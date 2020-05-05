@@ -1,30 +1,24 @@
 # Text Generator
 マルコフ連鎖を使った文章自動生成プログラム
 
-## バージョン
-ver 0.1
-
 ## 使い方
 文章の自動生成の方法
 
 ### 事前準備
-まずは、事前準備として、3つ組のデータを揃える
+`text.txt`に元になる文章を保存し、以下のコマンドを実行
 ```
-from PrepareChain import PrepareChain
-text = u"適当な長い文章。長い文章。"
-chain = PrepareChain(text)
-triplet_freqs = chain.make_triplet_freqs()
-chain.save(triplet_freqs, True)
+$ python PrepareChain.py
 ```
 
 ### 文章の生成
 事前準備がされていることが前提
 ```
-from GenerateText import GenerateText
-generator = GenerateText()
-print generator.generate()
+$ python GenerateText.py
 ```
-
+生成する文章の数を引数で指定可能(省略した場合は1)
+```
+$ python GenerateText.py 5
+```
 
 ## 各ファイル
 ### README.md
@@ -41,3 +35,6 @@ DB作成のためのスキーマファイル
 
 ### chain.db
 gitで管理はされていないが、3つ組チェーンの情報が保存されているDBファイル
+
+### text.txt
+元になる文章
